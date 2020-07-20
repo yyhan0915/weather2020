@@ -39,8 +39,8 @@ const weatherCase: any = {
 	Clouds: {
 		colors: ['#DDDDDD', '#304352'],
 		title: 'Clouds...',
-		subtitle: 'Scary',
-		icon: 'cloud',
+		subtitle: 'Scary day.... Becreaful',
+		icon: 'stay at home',
 	},
 	Snow: {
 		colors: ['#7de2fc', '#B9B6E5'],
