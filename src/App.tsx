@@ -29,7 +29,6 @@ class App extends Component<{}, IState> {
 	componentDidMount() {
 		navigator.geolocation.getCurrentPosition(
 			position => {
-				// console.log(position);
 				this.getWeatherData(
 					position.coords.latitude,
 					position.coords.longitude
