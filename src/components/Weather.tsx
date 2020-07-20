@@ -93,7 +93,7 @@ const Weather: React.FC<IProps> = ({
 									alt={weatherCase[weatherName].icon}
 								/>
 							);
-						case 'thunderstorm':
+						case 'thunder':
 							return (
 								<img
 									src={thunder}
