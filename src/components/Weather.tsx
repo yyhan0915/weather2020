@@ -56,7 +56,7 @@ const weatherCase: any = {
 	},
 };
 
-const Weather: React.SFC<IProps> = ({
+const Weather: React.FC<IProps> = ({
 	temperature,
 	weatherName,
 	sunrise,
