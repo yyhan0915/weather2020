@@ -131,8 +131,8 @@ const Weather: React.SFC<IProps> = ({ temperature, name, sunrise, sunset }) => {
 
 			<div className='Weather_Lower'>
 				<p>
-					Sunrise : {moment((sunrise as number) * 1000).format('h:mm')} / Sunset
-					: {moment((sunset as number) * 1000).format('h:mm')}
+					Sunrise : {moment((sunrise as number) * 1000).format('h:mm a')} / Sunset
+					: {moment((sunset as number) * 1000).format('h:mm a')}
 				</p>
 				<p className='Weather_Lower_Title'>
 					{weatherCase[name as string].title}
