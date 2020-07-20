@@ -122,7 +122,7 @@ const Weather: React.FC<IProps> = ({
 							);
 						case 'drizzle':
 							return (
-								<img src={cloud} width='150px' height='150px' alt={Drizzle} />
+								<img src={Drizzle} width='150px' height='150px' alt={Drizzle} />
 							);
 						default:
 							return null;
