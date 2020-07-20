@@ -1,0 +1,52 @@
+.Weather_Background {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    /* background: rgb(2, 0, 255);
+    background: linear-gradient(
+        0deg,
+        rgb(40, 40, 228) 0%,
+        rgb(33, 193, 241) 100%
+    ); */
+}
+
+.Weather_Upper {
+    flex: 1;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Weather_Upper_Temp {
+    font-size: 3rem;
+    background-color: transparent;
+    color: white;
+    margin-top: 10px;
+}
+
+.Weather_Lower {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.Weather_Lower_Title {
+    font-size: 2rem;
+    background-color: transparent;
+    color: white;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.Weather_Lower_Subtitle {
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: white;
+    margin-bottom: 24px;
+}
