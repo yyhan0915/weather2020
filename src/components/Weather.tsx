@@ -11,10 +11,10 @@ import Drizzle from '../asset/Drizzle.svg';
 import sun from '../asset/sun.svg';
 
 interface IProps {
-	temperature: number | null;
-	name: string | null;
-	sunrise: number | null;
-	sunset: number | null;
+	temperature: number;
+	weatherName: string;
+	sunrise: number;
+	sunset: number;
 }
 
 const weatherCase: any = {
@@ -40,7 +40,7 @@ const weatherCase: any = {
 		colors: ['#DDDDDD', '#304352'],
 		title: 'Clouds...',
 		subtitle: 'Scary day.... Becreaful',
-		icon: 'stay at home',
+		icon: 'cloud',
 	},
 	Snow: {
 		colors: ['#7de2fc', '#B9B6E5'],
@@ -56,7 +56,12 @@ const weatherCase: any = {
 	},
 };
 
-const Weather: React.SFC<IProps> = ({ temperature, name, sunrise, sunset }) => {
+const Weather: React.SFC<IProps> = ({
+	temperature,
+	weatherName,
+	sunrise,
+	sunset,
+}) => {
 	return (
 		<div
 			style={{
@@ -65,20 +70,18 @@ const Weather: React.SFC<IProps> = ({ temperature, name, sunrise, sunset }) => {
 				flexDirection: 'column',
 				width: '100vw',
 				height: '100vh',
-				background: `linear-gradient(${
-					weatherCase[name as string].colors[0]
-				}, ${weatherCase[name as string].colors[1]})`,
+				background: `linear-gradient(${weatherCase[weatherName].colors[0]}, ${weatherCase[weatherName].colors[1]})`,
 			}}>
 			<div className='Weather_Upper'>
 				{(() => {
-					switch (weatherCase[name as string].icon) {
+					switch (weatherCase[weatherName].icon) {
 						case 'rain':
 							return (
 								<img
 									src={rain}
 									width='150px'
 									height='150px'
-									alt={weatherCase[name as string].icon}
+									alt={weatherCase[weatherName].icon}
 								/>
 							);
 						case 'clear':
@@ -87,7 +90,7 @@ const Weather: React.SFC<IProps> = ({ temperature, name, sunrise, sunset }) => {
 									src={sun}
 									width='150px'
 									height='150px'
-									alt={weatherCase[name as string].icon}
+									alt={weatherCase[weatherName].icon}
 								/>
 							);
 						case 'thunderstorm':
@@ -96,7 +99,7 @@ const Weather: React.SFC<IProps> = ({ temperature, name, sunrise, sunset }) => {
 									src={thunder}
 									width='150px'
 									height='150px'
-									alt={weatherCase[name as string].icon}
+									alt={weatherCase[weatherName].icon}
 								/>
 							);
 						case 'cloud':
@@ -105,7 +108,7 @@ const Weather: React.SFC<IProps> = ({ temperature, name, sunrise, sunset }) => {
 									src={cloud}
 									width='150px'
 									height='150px'
-									alt={weatherCase[name as string].icon}
+									alt={weatherCase[weatherName].icon}
 								/>
 							);
 						case 'snow':
@@ -114,7 +117,7 @@ const Weather: React.SFC<IProps> = ({ temperature, name, sunrise, sunset }) => {
 									src={snow}
 									width='150px'
 									height='150px'
-									alt={weatherCase[name as string].icon}
+									alt={weatherCase[weatherName].icon}
 								/>
 							);
 						case 'drizzle':
@@ -131,14 +134,12 @@ const Weather: React.SFC<IProps> = ({ temperature, name, sunrise, sunset }) => {
 
 			<div className='Weather_Lower'>
 				<p>
-					Sunrise : {moment((sunrise as number) * 1000).format('h:mm a')} / Sunset
-					: {moment((sunset as number) * 1000).format('h:mm a')}
+					Sunrise : {moment(sunrise * 1000).format('h:mm a')} / Sunset :{' '}
+					{moment(sunset * 1000).format('h:mm a')}
 				</p>
-				<p className='Weather_Lower_Title'>
-					{weatherCase[name as string].title}
-				</p>
+				<p className='Weather_Lower_Title'>{weatherCase[weatherName].title}</p>
 				<p className='Weather_Lower_Subtitle'>
-					{weatherCase[name as string].subtitle}
+					{weatherCase[weatherName].subtitle}
 				</p>
 			</div>
 		</div>

@@ -4,13 +4,14 @@ import Weather from './components/Weather';
 import './App.css';
 
 const API_KEY = '4eda414633c8685252e44cf162c4e3a8';
+
 interface IState {
 	isLoading: boolean;
-	error: string | null;
-	temperature: number | null;
-	name: string | null;
-	sunrise: number | null;
-	sunset: number | null;
+	error: string;
+	temperature: number;
+	weatherName: string;
+	sunrise: number;
+	sunset: number;
 }
 class App extends Component<{}, IState> {
 	constructor(props: Readonly<{}>) {
@@ -19,7 +20,7 @@ class App extends Component<{}, IState> {
 			isLoading: false,
 			error: null,
 			temperature: null,
-			name: null,
+			weatherName: null,
 			sunrise: null,
 			sunset: null,
 		};
@@ -48,21 +49,28 @@ class App extends Component<{}, IState> {
 				console.log(data);
 				this.setState({
 					temperature: data.main.temp,
-					name: data.weather[0].main,
+					weatherName: data.weather[0].main,
 					sunrise: data.sys.sunrise,
 					sunset: data.sys.sunset,
 				});
 			});
 	}
 	render() {
-		const { isLoading, error, temperature, name, sunrise, sunset } = this.state;
+		const {
+			isLoading,
+			error,
+			temperature,
+			weatherName,
+			sunrise,
+			sunset,
+		} = this.state;
 
 		return (
 			<div className='App_Loading'>
-				{isLoading && name ? (
+				{isLoading && weatherName ? (
 					<Weather
-						temperature={Math.floor((temperature as number) - 273.15)}
-						name={name}
+						temperature={Math.floor(temperature - 273.15)}
+						weatherName={weatherName}
 						sunrise={sunrise}
 						sunset={sunset}
 					/>
